@@ -32,8 +32,11 @@ class InkyDev:
 
         self._i2c.write_byte_data(I2C_ADDRESS, REG_CONFIG, 0x0F)
         self._i2c.write_byte_data(I2C_ADDRESS, REG_POLARITY, 0x00)
+        self._i2c.write_byte_data(I2C_ADDRESS, REG_OUTPUT, 0x00)
 
         self._leds = [(20, 0, 0, 0) for _ in range(4)]
+
+        self._epd_power = True
 
         # Pre-bake the register writes for the start/end frames because they never change
         self._start_frame = self.prepare_frame(0x00000000)
@@ -44,6 +47,10 @@ class InkyDev:
         """Split a list of values in to chunks of length n."""
         for i in range(0, len(data) + 1, chunksize):
             yield data[i:i + chunksize]
+
+    def set_epd_power(self, value):
+        self._epd_power = value
+        self._i2c.write_byte_data(I2C_ADDRESS, REG_OUTPUT, 0x00 if value else EPD_PWR_EN)
 
     def read_buttons(self):
         buttons = self._i2c.read_byte_data(I2C_ADDRESS, REG_INPUT)
@@ -66,6 +73,9 @@ class InkyDev:
                 # Clock LOW + clear data bit, followed by clock HIGH
                 data += [0b00000000, 0b10000000]
             frame <<= 1
+
+        if not self._epd_power:
+            data = [d | EPD_PWR_EN for d in data]
 
         return data
 
