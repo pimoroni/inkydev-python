@@ -1,12 +1,7 @@
 import smbus2
-import time
-import colorsys
 
-"""
-For a 50FPS framerate, set the following in /boot/config.txt:
 
-dtparam=i2c_arm=on,i2c_arm_baudrate=400000
-"""
+__version__ = '0.0.1'
 
 
 I2C_ADDRESS = 0x3b
@@ -45,10 +40,10 @@ class InkyDev:
         self._end_frame = self.prepare_frame(0xFFFFFFFF)
         self._last_buttons = 0
 
-    def chunk(self, l, n):
+    def chunk(self, data, chunksize):
         """Split a list of values in to chunks of length n."""
-        for i in range(0, len(l) + 1, n):
-            yield l[i:i + n]
+        for i in range(0, len(data) + 1, chunksize):
+            yield data[i:i + chunksize]
 
     def read_buttons(self):
         buttons = self._i2c.read_byte_data(I2C_ADDRESS, REG_INPUT)
@@ -96,5 +91,3 @@ class InkyDev:
         else:
             brightness = int(31 * brightness)
         self._leds[i] = (brightness, r, g, b)
-
-

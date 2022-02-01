@@ -5,6 +5,13 @@ import atexit
 from inkydev import InkyDev
 
 
+"""
+For a 50FPS framerate, set the following in /boot/config.txt:
+
+dtparam=i2c_arm=on,i2c_arm_baudrate=400000
+"""
+
+
 frames = 0
 time_start = time.time()
 time_last = time.time()
@@ -34,3 +41,5 @@ while True:
     frames += 1
     if t - time_last >= 2.0:
         time_elapsed = t - time_start
+        print(f"{frames / time_elapsed:2.2f} FPS")
+        time_last = time.time()
