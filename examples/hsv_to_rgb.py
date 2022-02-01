@@ -1,5 +1,6 @@
 import time
 import colorsys
+import atexit
 
 from inkydev import InkyDev
 
@@ -9,6 +10,14 @@ time_start = time.time()
 time_last = time.time()
 
 inkydev = InkyDev()
+
+
+def exit():
+    inkydev.clear()
+    inkydev.update()
+
+
+atexit.register(exit)
 
 while True:
     t = time.time()
@@ -21,10 +30,6 @@ while True:
         inkydev.set_led(i, r, g, b, brightness=0.1)
 
     inkydev.update()
-    button_a, button_b, button_c, button_d, changed = inkydev.read_buttons()
-
-    if changed:
-        print(f"Buttons A {button_a} B {button_b} C {button_c} D {button_d}")
 
     frames += 1
     if t - time_last >= 2.0:

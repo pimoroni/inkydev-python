@@ -1,11 +1,29 @@
+#!/usr/bin/env python3
+
 import time
+import atexit
 
 from inkydev import InkyDev
 
 inkydev = InkyDev()
 
-colours = [(255, 0, 0), (255, 255, 0), (0, 255, 0), (0, 255, 255), (0, 0, 255), (255, 0, 255)]
+colours = [
+    (255, 0, 0),
+    (255, 255, 0),
+    (0, 255, 0),
+    (0, 255, 255),
+    (0, 0, 255),
+    (255, 0, 255)
+]
 current = 0
+
+
+def exit():
+    inkydev.clear()
+    inkydev.update()
+
+
+atexit.register(exit)
 
 while True:
     r, g, b = colours[current]

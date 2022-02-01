@@ -26,6 +26,8 @@ BUTTON_B = 0b00000010
 BUTTON_C = 0b00000100
 BUTTON_D = 0b00001000
 
+PIN_INTERRUPT = 4
+
 
 class InkyDev:
     def __init__(self, i2c_bus=None):
@@ -83,6 +85,10 @@ class InkyDev:
 
         for c in self.chunk(data, 32):
             self._i2c.write_i2c_block_data(I2C_ADDRESS, REG_OUTPUT, c)
+
+    def clear(self):
+        for i in range(4):
+            self.set_led(i, 0, 0, 0, brightness=1.0)
 
     def set_led(self, i, r, g, b, brightness=None):
         if brightness is None:
