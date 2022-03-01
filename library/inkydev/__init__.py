@@ -4,7 +4,7 @@ import smbus2
 __version__ = '0.0.1'
 
 
-I2C_ADDRESS = 0x3b
+I2C_ADDRESS = 0x3a
 REG_INPUT = 0x00
 REG_OUTPUT = 0x01
 REG_POLARITY = 0x02
