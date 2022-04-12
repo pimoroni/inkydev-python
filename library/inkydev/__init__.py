@@ -1,7 +1,7 @@
 import smbus2
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 I2C_ADDRESS = 0x3a
