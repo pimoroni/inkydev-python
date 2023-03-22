@@ -1,6 +1,6 @@
 # Inky Development Board
 
-[![Build Status](https://shields.io/github/workflow/status/pimoroni/inkydev-python/Python%20Tests.svg)](https://github.com/pimoroni/inkydev-python/actions/workflows/test.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pimoroni/inkydev-python/test.yml?branch=main)](https://github.com/pimoroni/inkydev-python/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/pimoroni/inkydev-python/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/inkydev-python?branch=master)
 [![PyPi Package](https://img.shields.io/pypi/v/inkydev.svg)](https://pypi.python.org/pypi/inkydev)
 [![Python Versions](https://img.shields.io/pypi/pyversions/inkydev.svg)](https://pypi.python.org/pypi/inkydev)
