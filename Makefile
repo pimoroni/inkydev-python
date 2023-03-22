@@ -49,11 +49,10 @@ library/LICENSE.txt: LICENSE
 	cp LICENSE library/LICENSE.txt
 
 python-wheels: python-readme python-license
-	cd library; python3 setup.py bdist_wheel
-	cd library; python setup.py bdist_wheel
+	cd library; python3 -m build --wheel
 
 python-sdist: python-readme python-license
-	cd library; python setup.py sdist
+	cd library; python3 -m build --sdist
 
 python-clean:
 	-rm -r library/dist

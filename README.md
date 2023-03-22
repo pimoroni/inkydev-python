@@ -18,7 +18,7 @@ You can optionally run `sudo raspi-config` or the graphical Raspberry Pi Configu
 
 Stable library from PyPi:
 
-* Just run `pip3 install inkydev`
+* Just run `python3 -m pip install inkydev`
 
 In some cases you may need to use `sudo` or install pip with: `sudo apt install python3-pip`
 
