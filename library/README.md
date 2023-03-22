@@ -1,6 +1,6 @@
 # Inky Development Board
 
-[![Build Status](https://shields.io/github/workflow/status/pimoroni/inkydev-python/Python%20Tests.svg)](https://github.com/pimoroni/inkydev-python/actions/workflows/test.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pimoroni/inkydev-python/test.yml?branch=main)](https://github.com/pimoroni/inkydev-python/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/pimoroni/inkydev-python/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/inkydev-python?branch=master)
 [![PyPi Package](https://img.shields.io/pypi/v/inkydev.svg)](https://pypi.python.org/pypi/inkydev)
 [![Python Versions](https://img.shields.io/pypi/pyversions/inkydev.svg)](https://pypi.python.org/pypi/inkydev)
@@ -18,7 +18,7 @@ You can optionally run `sudo raspi-config` or the graphical Raspberry Pi Configu
 
 Stable library from PyPi:
 
-* Just run `pip3 install inkydev`
+* Just run `python3 -m pip install inkydev`
 
 In some cases you may need to use `sudo` or install pip with: `sudo apt install python3-pip`
 
@@ -30,6 +30,11 @@ Latest/development library from GitHub:
 
 
 # Changelog
+0.0.2
+-----
+
+* Fix i2c address
+
 0.0.1
 -----
 
